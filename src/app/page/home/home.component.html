@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+
+<div class="container px-3 my-5 mx-auto sm:px-0">
+  <mat-card>
+    <form class="example-form">
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Search</mat-label>
+        <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <!-- <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> -->
+      </mat-form-field>
+    </form>
+
+    <mat-card-title>Actions Buttons</mat-card-title>
+    <mat-card-subtitle>Start</mat-card-subtitle>
+    <mat-card-content>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, quas iusto? Molestias numquam perspiciatis
+        rerum magni culpa itaque quae quaerat. Amet iure earum blanditiis qui dolorem ipsa accusantium nulla sequi!
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" routerLink="/test">Primary</button>
+      <button mat-raised-button color="accent">Secondary</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

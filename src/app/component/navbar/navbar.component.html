@@ -1,0 +1,65 @@
+<mat-toolbar class="shadow-lg shadow-zinc-800/25">
+  <div class="container mx-auto">
+    <div class="flex flex-row items-center">
+      <!-- App Title -->
+      <div class="grow select-none">
+        <a routerLink="/">
+          <mat-icon fontSet="fas" fontIcon="fa-flask" class="text-lg text-cyan-500 -mb-[3px] mr-2"></mat-icon>
+          <span>Angular Boilerplate</span>
+        </a>
+      </div>
+      <!-- App Menu -->
+      <div class="grow">
+        <div class="flex space-x-2 align-middle float-right">
+          <!-- Theme Chooser : Item -->
+          <button mat-icon-button [matMenuTriggerFor]="themeChooser" aria-label="Select Color Theme"
+            matTooltip="Select Color Theme">
+            <!-- Light Icon -->
+            <div class="flex align-middle justify-center" *ngIf="themeService.userColorScheme === 'light'">
+              <mat-icon fontSet="far" fontIcon="fa-sun" class="text-xl text-cyan-500 hover:text-cyan-400"></mat-icon>
+            </div>
+            <!-- Dark Icon -->
+            <div class="flex align-middle justify-center" *ngIf="themeService.userColorScheme === 'dark'">
+              <mat-icon fontSet="far" fontIcon="fa-moon" class="text-xl text-cyan-500 hover:text-cyan-400"></mat-icon>
+            </div>
+            <!-- System Icon -->
+            <div class="flex align-middle justify-center" *ngIf="themeService.userColorScheme === 'system'">
+              <mat-icon fontSet="far" fontIcon="fa-moon" class="text-xl text-slate-400 hover:text-slate-300"></mat-icon>
+            </div>
+          </button>
+          <mat-menu #themeChooser="matMenu" xPosition="before">
+            <mat-selection-list multiple="false" (selectionChange)="userColorSchemeChange($event.options[0].value)">
+              <!-- Light Theme -->
+              <mat-list-option value="light" [selected]="themeService.userColorScheme === 'light'">
+                <div class="flex flex-row gap-3">
+                  <mat-icon fontSet="far" fontIcon="fa-sun" class="text-xl"></mat-icon>
+                  <span>Light</span>
+                </div>
+              </mat-list-option>
+              <!-- Dark Theme -->
+              <mat-list-option value="dark" [selected]="themeService.userColorScheme === 'dark'">
+                <div class="flex flex-row gap-3">
+                  <mat-icon fontSet="far" fontIcon="fa-moon" class="text-xl"></mat-icon>
+                  <span>Dark</span>
+                </div>
+              </mat-list-option>
+              <!-- System Default -->
+              <mat-list-option value="system" [selected]="themeService.userColorScheme === 'system'">
+                <div class="flex flex-row gap-3">
+                  <mat-icon fontSet="fas" fontIcon="fa-desktop" class="text-xl"></mat-icon>
+                  <span>System</span>
+                </div>
+              </mat-list-option>
+            </mat-selection-list>
+          </mat-menu>
+          <!-- GitHub -->
+          <a mat-icon-button href="https://github.com/P1N2O/angular-boilerplate" target="_blank" rel="noreferrer"
+            aria-label="Checkout on GitHub" matTooltip="Checkout on GitHub">
+            <mat-icon fontSet="fab" fontIcon="fa-github"
+              class="text-xl text-gray-600 hover:text-gray-900 dark:text-slate-300 dark:hover:text-slate-50"></mat-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>

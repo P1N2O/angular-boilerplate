@@ -1,0 +1,24 @@
+// Global Variables
+@use 'variables';
+@use 'material';
+
+// Tailwind CSS
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Global Styles
+body {
+  font-family: Montserrat, 'Helvetica Neue', sans-serif;
+  background-image: url('/assets/images/backgrounds/body_bg_light.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.dark {
+  body {
+    background-image: url('/assets/images/backgrounds/body_bg_dark.png');
+  }
+}
